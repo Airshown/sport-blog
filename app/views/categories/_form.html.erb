@@ -1,0 +1,13 @@
+<%= simple_form_for @category do |f| %>
+
+  <div class="row">
+      <div class="form-group col-lg-5">
+          <%= f.input :nom, label: 'Nom', class: 'form-control' %>
+      </div>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit 'Ajouter', class: 'btn btn-primary' %>
+  </div>
+
+<% end %>
