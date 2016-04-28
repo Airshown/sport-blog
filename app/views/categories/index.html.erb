@@ -22,7 +22,10 @@
         <% end %>
       </tbody>
     </table>
-    
+  <div class="pagination">
+  
+     <%= will_paginate @categories, :container => false %>
+  </div>
     <br>
     
     <%= link_to 'Nouvelle catégorie', new_category_path %>
