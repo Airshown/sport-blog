@@ -1,26 +1,30 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Liste des Categories</h1>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>Nom</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @categories.each do |category| %>
-      <tr>
-        <td><%= category.nom %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Etes-vous sur de vouloir supprimer cette catégorie?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'Nouvelle catégorie', new_category_path %>
+<div class="row">
+  <div class="col-md-12">
+    <p id="notice"><%= notice %></p>
+    
+    <h1>Liste des Categories</h1>
+    
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th colspan="2"></th>
+        </tr>
+      </thead>
+    
+      <tbody>
+        <% @categories.each do |category| %>
+          <tr>
+            <td><%= category.nom %></td>
+            <td><%= link_to 'Edit', edit_category_path(category) %></td>
+            <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Etes-vous sur de vouloir supprimer cette catégorie?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    
+    <br>
+    
+    <%= link_to 'Nouvelle catégorie', new_category_path %>
+  </div>
+</div>
