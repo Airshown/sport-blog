@@ -21,8 +21,8 @@
         <td><%= article.titre %></td>
         <td><%= article.contenu %></td>
         <td><%= article.categorie %></td>
-        <td><%= article.createdAt %></td>
-        <td><%= article.updatedAt %></td>
+        <td><%= article.created_at.strftime('%d/%m/%Y %H:%M') %></td>
+        <td><%= article.updated_at.strftime('%d/%m/%Y %H:%M')  %></td>
         <td><%= (if article.masquer then 'oui' else 'non' end) %></td>
         <td><%= link_to 'Voir', article %></td>
         <td><%= link_to 'Modifier', edit_article_path(article) %></td>
