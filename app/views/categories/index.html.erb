@@ -1,14 +1,18 @@
 <div class="row">
   <div class="col-md-12">
-    <p id="notice"><%= notice %></p>
+    <% if notice.present? %><p id="notice"><%= notice %></p><% end %>
     
-    <h1>Liste des Categories</h1>
+    <h1>Liste des Catégories</h1>
+    
+    <br>
+    
+    <%= link_to 'Nouvelle catégorie', new_category_path, class: 'btn btn-primary' %>
     
     <table class="table">
       <thead>
         <tr>
-          <th>Nom</th>
-          <th colspan="2"></th>
+          <th class="col-md-9">Nom</th>
+          <th  class="col-md-3">Options</th>
         </tr>
       </thead>
     
@@ -16,18 +20,16 @@
         <% @categories.each do |category| %>
           <tr>
             <td><%= category.nom %></td>
-            <td><%= link_to 'Edit', edit_category_path(category) %></td>
-            <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Etes-vous sur de vouloir supprimer cette catégorie?' } %></td>
+            <td><%= link_to 'Modifier', edit_category_path(category), class: "btn btn-info" %>
+                <%= link_to 'Supprimer', category, method: :delete, data: { confirm: 'Êtes-vous sur de vouloir supprimer cette catégorie?' }, class: "btn btn-danger" %>
+            </td>
           </tr>
         <% end %>
       </tbody>
     </table>
-  <div class="pagination">
-  
-     <%= will_paginate @categories, :container => false %>
-  </div>
-    <br>
     
-    <%= link_to 'Nouvelle catégorie', new_category_path %>
+    <div class="pagination">
+       <%= will_paginate @categories, :container => false, renderer: BootstrapPagination::Rails %>
+    </div>
   </div>
 </div>

@@ -21,13 +21,13 @@ pre {
 a {
   color: #000;
 
-  &:visited {
-    color: #666;
-  }
+/*  &:visited {
+    color: #fff;
+  }*/
 
   &:hover {
     color: #fff;
-    background-color: #000;
+    /*background-color: #000;*/
   }
 }
 
@@ -38,7 +38,14 @@ div {
 }
 
 #notice {
-  color: green;
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin-top: 20px;
 }
 
 .field_with_errors {
