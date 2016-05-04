@@ -6,7 +6,9 @@
     
     <br>
     
-    <%= link_to 'Nouvelle catégorie', new_category_path, class: 'btn btn-success' %>
+    <%= link_to new_category_path, class: "btn btn-success" do %>
+      <span class="glyphicon glyphicon-plus"></span> Nouveau
+    <% end %>
     
     <table class="table">
       <thead>
@@ -21,8 +23,12 @@
           <tr>
             <td><%= category.nom %></td>
             <td>
-              <%= link_to 'Modifier', edit_category_path(category), class: "btn btn-warning" %>
-              <%= link_to 'Supprimer', category, method: :delete, data: { confirm: 'Êtes-vous sur de vouloir supprimer cette catégorie?' }, class: "btn btn-danger" %>
+              <%= link_to edit_category_path(category), class: "btn btn-warning" do %>
+                <span class="glyphicon glyphicon-pencil"></span> Modifier
+              <% end %>
+              <%= link_to category, method: :delete, data: { confirm: 'Voulez-vous vraiment supprimer cette catégorie?' }, class: "btn btn-danger" do %>
+                <span class="glyphicon glyphicon-remove"></span> Supprimer
+              <% end %>
             </td>
           </tr>
         <% end %>

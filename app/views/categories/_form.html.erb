@@ -7,7 +7,9 @@
   </div>
   
   <div class="actions">
-    <%= f.submit 'Enregistrer', class: 'btn btn-primary' %>
+    <%= button_tag(class: 'btn btn-primary') do %>
+      <span class="glyphicon glyphicon-floppy-disk"></span> Enregistrer
+    <% end %>
   </div>
 
 <% end %>

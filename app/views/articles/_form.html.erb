@@ -28,8 +28,11 @@
     <%= button_tag(class: 'btn btn-primary') do %>
       <span class="glyphicon glyphicon-floppy-disk"></span> Enregistrer
     <% end %>
-    <%= link_to @article, class: 'btn btn-info' do %>
-      <span class="glyphicon glyphicon-eye-open"></span> Voir l'article
+    
+    <% if @article.titre %>
+      <%= link_to @article, class: 'btn btn-info' do %>
+        <span class="glyphicon glyphicon-eye-open"></span> Voir l'article
+      <% end %>
     <% end %>
   </div>
 
