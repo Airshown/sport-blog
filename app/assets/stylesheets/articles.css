@@ -1,0 +1,7 @@
+.table > thead > tr > th, .table > thead > tr > td, .table > tbody > tr > th, .table > tbody > tr > td, .table > tfoot > tr > th, .table > tfoot > tr > td {
+  vertical-align: baseline; }
+
+span.glyphicon-ok-sign {
+  font-size: 16px; }
+
+/*# sourceMappingURL=articles.css.map */

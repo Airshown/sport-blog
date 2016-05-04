@@ -29,3 +29,15 @@
 .offset {
     padding-top: 50px;
 }
+
+.table > thead > tr > th, .table > thead > tr > td, .table > tbody > tr > th, .table > tbody > tr > td, .table > tfoot > tr > th, .table > tfoot > tr > td {
+    vertical-align: baseline;
+}
+
+span.glyphicon-ok-sign, span.glyphicon-remove-sign {
+    font-size: 16px;
+}
+
+a.btn-success {
+    margin-bottom: 10px;
+}

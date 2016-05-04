@@ -6,13 +6,13 @@
     
     <br>
     
-    <%= link_to 'Nouvelle catégorie', new_category_path, class: 'btn btn-primary' %>
+    <%= link_to 'Nouvelle catégorie', new_category_path, class: 'btn btn-success' %>
     
     <table class="table">
       <thead>
         <tr>
           <th class="col-md-9">Nom</th>
-          <th  class="col-md-3">Options</th>
+          <th class="col-md-3">Options</th>
         </tr>
       </thead>
     
@@ -20,8 +20,9 @@
         <% @categories.each do |category| %>
           <tr>
             <td><%= category.nom %></td>
-            <td><%= link_to 'Modifier', edit_category_path(category), class: "btn btn-info" %>
-                <%= link_to 'Supprimer', category, method: :delete, data: { confirm: 'Êtes-vous sur de vouloir supprimer cette catégorie?' }, class: "btn btn-danger" %>
+            <td>
+              <%= link_to 'Modifier', edit_category_path(category), class: "btn btn-warning" %>
+              <%= link_to 'Supprimer', category, method: :delete, data: { confirm: 'Êtes-vous sur de vouloir supprimer cette catégorie?' }, class: "btn btn-danger" %>
             </td>
           </tr>
         <% end %>
