@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-12">
     <% if notice.present? %><p id="notice"><%= notice %></p><% end %>
-    
+
     <h1>Liste des Articles</h1>
     
     <table class="table">
@@ -23,8 +23,8 @@
             <td><%= article.titre %></td>
             <td><%= article.contenu %></td>
             <td><%= article.categorie %></td>
-            <td><%= article.createdAt %></td>
-            <td><%= article.updatedAt %></td>
+            <td><%= article.created_at.strftime('%d/%m/%Y %H:%M') %></td>
+            <td><%= article.updated_at.strftime('%d/%m/%Y %H:%M')  %></td>
             <td><%= (if article.masquer then 'oui' else 'non' end) %></td>
             <td><%= link_to 'Voir', article %></td>
             <td><%= link_to 'Modifier', edit_article_path(article) %></td>
@@ -38,5 +38,6 @@
     <br>
     
     <%= link_to 'Nouveau', new_article_path %>
+
   </div>
 </div>
