@@ -19,6 +19,7 @@ gem 'therubyracer', platforms: :ruby
 gem 'simple_form'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
+gem 'bootstrap-wysihtml5-rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
