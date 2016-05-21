@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<% if notice.present? %><p id="notice"><%= notice %></p><% end %>
 
 <p>
   <strong>Titre:</strong>
@@ -17,12 +17,12 @@
 
 <p>
   <strong>Créé le:</strong>
-  <%= @article.createdAt %>
+  <%= @article.created_at.strftime('%d/%m/%Y %H:%M') %>
 </p>
 
 <p>
   <strong>Modifié le:</strong>
-  <%= @article.updatedAt %>
+  <%= @article.updated_at.strftime('%d/%m/%Y %H:%M') %>
 </p>
 
 <p>
