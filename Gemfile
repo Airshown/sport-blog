@@ -20,6 +20,7 @@ gem 'simple_form'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 gem 'bootstrap-wysihtml5-rails'
+gem "paperclip", "~> 5.0.0.beta1"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

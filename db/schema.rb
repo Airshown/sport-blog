@@ -11,15 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160503174408) do
+ActiveRecord::Schema.define(version: 20160522114859) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "titre"
     t.text     "contenu"
     t.integer  "categorie_id"
     t.boolean  "masquer"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   add_index "articles", ["categorie_id"], name: "index_articles_on_categorie_id"

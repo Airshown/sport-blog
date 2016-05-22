@@ -30,5 +30,11 @@
   <%= @article.masquer %>
 </p>
 
+
+<p>
+  <strong>Photo:</strong>
+  <%= image_tag @article.photo(:medium) %>
+</p>
+
 <%= link_to 'Modifier', edit_article_path(@article) %> |
 <%= link_to 'Retourner à la liste des articles', articles_path %>
