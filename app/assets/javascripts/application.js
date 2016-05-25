@@ -21,7 +21,7 @@
 //= require bootstrap-wysihtml5/handlebars.runtime.min.js
 //= require bootstrap-wysihtml5/minimum
 
-$(document).ready(function($) {
+$(document).on('ready page:load', function () {
 
     $('.wysihtml5').wysihtml5({
     	toolbar: {
