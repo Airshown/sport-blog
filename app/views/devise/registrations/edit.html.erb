@@ -5,7 +5,7 @@
 
   <div class="form-inputs">
     <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :username, :label => "Utilisateur", required: true %>
+    <%= f.input :username, required: true %>
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>En attente de confirmation: <%= resource.unconfirmed_email %></p>
     <% end %>
@@ -16,6 +16,6 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Modifier" %>
+    <%= f.button :submit %>
   </div>
 <% end %>
