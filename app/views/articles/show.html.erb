@@ -1,40 +1,93 @@
-<% if notice.present? %><p id="notice"><%= notice %></p><% end %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <p class="lead">Catégories</p>
+            <div class="list-group">
+                <a href="#" class="list-group-item active">Category 1</a>
+            </div>
+        </div>
 
-<p>
-  <strong>Titre:</strong>
-  <%= @article.titre %>
-</p>
+        <div class="col-md-9">
 
-<p>
-  <strong>Contenu:</strong>
-  <%= @article.contenu %>
-</p>
+            <div class="thumbnail">
+                <img class="img-responsive" src="<%= image_tag @article.photo(:medium) %>" alt="">
+                <div class="caption-full">
+                    <h4 class="pull-right">Publié le <%= @article.created_at.strftime('%d/%m/%Y %H:%M') %></h4>
+                    <h4><%= @article.titre %></h4>
+                    
+                    <%= @article.contenu %>
+                </div>
+                
+                <div class="ratings">
+                    <p class="pull-right">3 reviews</p>
+                    <p>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        4.0 stars
+                    </p>
+                </div>
+            </div>
 
-<p>
-  <strong>Categorie:</strong>
-  <%= @article.categorie %>
-</p>
+            <div class="well">
 
-<p>
-  <strong>Créé le:</strong>
-  <%= @article.created_at.strftime('%d/%m/%Y %H:%M') %>
-</p>
+                <div class="text-right">
+                    <a class="btn btn-success">Leave a Review</a>
+                </div>
 
-<p>
-  <strong>Modifié le:</strong>
-  <%= @article.updated_at.strftime('%d/%m/%Y %H:%M') %>
-</p>
+                <hr>
 
-<p>
-  <strong>Masquer:</strong>
-  <%= @article.masquer %>
-</p>
+                <div class="row">
+                    <div class="col-md-12">
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        Anonymous
+                        <span class="pull-right">10 days ago</span>
+                        <p>This product was great in terms of quality. I would definitely buy another!</p>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        Anonymous
+                        <span class="pull-right">12 days ago</span>
+                        <p>I've alredy ordered another one!</p>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        Anonymous
+                        <span class="pull-right">15 days ago</span>
+                        <p>I've seen some better than this, but not at this price. I definitely recommend this item.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.container -->
 
 
-<p>
-  <strong>Photo:</strong>
-  <%= image_tag @article.photo(:medium) %>
-</p>
 
 <%= link_to 'Modifier', edit_article_path(@article) %> |
 <%= link_to 'Retourner à la liste des articles', articles_path %>
