@@ -22,6 +22,7 @@ gem 'will_paginate-bootstrap'
 gem 'bootstrap-wysihtml5-rails'
 gem "paperclip", "~> 5.0.0.beta1"
 gem 'devise'
+gem 'friendly_id'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
