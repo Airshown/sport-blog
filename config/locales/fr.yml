@@ -20,8 +20,27 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 fr:
+  signup: "Inscription"
+  connection: "Connexion"
+  profile_edit: "Modifier mon profil"
+  password_forgotten: "Mot de passe oublié"
+  password_forgotten_tip: "Me renvoyer les instructions de réinitialisation"
+  tip_actual_password: "Nous avons besoinde votre mot de passe actuel pour effectuer les modifications"
+  tip_password: "Laissez vide si vous ne souhaitez pas le modifier"
+  helpers:
+    submit:
+      user:
+        update: "Modifier"
+        create: "S'inscrire"
   activerecord:
     attributes:
       user:
-        password: "test"
+        email: "Adresse mail"
+        username: "Utilisateur"
+        password: "Mot de passe"
+        password_confirmation: "Confirmation du mot de passe"
+        current_password: "Mot de passe actuel"
+        submit: "Se connecter"
+        remember_me: "Rester connecté"
+        
       
