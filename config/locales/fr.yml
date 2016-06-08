@@ -20,6 +20,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 fr:
+  category: "Catégorie"
+  categories: "Catégories"
+  comment: "Commentaire"
+  comments: "Commentaires"
+  leave_comment: "Laisser un commentaire"
   signup: "Inscription"
   connection: "Connexion"
   profile_edit: "Modifier mon profil"
@@ -27,6 +32,10 @@ fr:
   password_forgotten_tip: "Me renvoyer les instructions de réinitialisation"
   tip_actual_password: "Nous avons besoinde votre mot de passe actuel pour effectuer les modifications"
   tip_password: "Laissez vide si vous ne souhaitez pas le modifier"
+  time:
+    formats:
+      default: "%d/%m/%Y %H:%M"
+      short: "%d/%m/%Y"
   helpers:
     submit:
       user:

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   get 'login' => 'users#login'
+  # get 'categories/:id' => 'categories#view'
   # get 'profile' => 'users#profile'
   root 'home#index'
 

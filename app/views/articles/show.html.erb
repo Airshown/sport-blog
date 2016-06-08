@@ -1,32 +1,41 @@
-<div class="container">
+<div class="container mt-20">
     <div class="row">
         <div class="col-md-3">
-            <p class="lead">Catégories</p>
+            <p class="lead"><%= t('categories') %></p>
             <div class="list-group">
-                <a href="#" class="list-group-item active">Category 1</a>
+              <% @categories.each do |category| %>
+                <% if category.id == @article.categorie.id %>
+                  <a href="" class="list-group-item active"><%= category.nom %></a>
+                <% else %>
+                  <a href="" class="list-group-item"><%= category.nom %></a>
+                <% end %>
+              <% end %>
             </div>
         </div>
 
         <div class="col-md-9">
 
             <div class="thumbnail">
-                <img class="img-responsive" src="<%= image_tag @article.photo(:medium) %>" alt="">
+                <%= image_tag @article.photo(:medium), :class => "img-responsive" %>
                 <div class="caption-full">
-                    <h4 class="pull-right">Publié le <%= @article.created_at.strftime('%d/%m/%Y %H:%M') %></h4>
+                    <h5 class="pull-right">Publié le <%= l @article.created_at, format: :short %></h5>
                     <h4><%= @article.titre %></h4>
                     
-                    <%= @article.contenu %>
+                    <%= @article.contenu.html_safe %>
+                    
                 </div>
                 
+                <hr>
+                
                 <div class="ratings">
-                    <p class="pull-right">3 reviews</p>
+                    <p class="pull-right">2 <%= t('comments') %></p>
                     <p>
                         <span class="glyphicon glyphicon-star"></span>
                         <span class="glyphicon glyphicon-star"></span>
                         <span class="glyphicon glyphicon-star"></span>
                         <span class="glyphicon glyphicon-star"></span>
                         <span class="glyphicon glyphicon-star-empty"></span>
-                        4.0 stars
+                        4.0 étoiles
                     </p>
                 </div>
             </div>
@@ -34,7 +43,7 @@
             <div class="well">
 
                 <div class="text-right">
-                    <a class="btn btn-success">Leave a Review</a>
+                    <a class="btn btn-success"><%= t('leave_comment') %></a>
                 </div>
 
                 <hr>
@@ -66,28 +75,11 @@
                         <p>I've alredy ordered another one!</p>
                     </div>
                 </div>
-
-                <hr>
-
-                <div class="row">
-                    <div class="col-md-12">
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        Anonymous
-                        <span class="pull-right">15 days ago</span>
-                        <p>I've seen some better than this, but not at this price. I definitely recommend this item.</p>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
 </div>
 <!-- /.container -->
-
-
 
 <%= link_to 'Modifier', edit_article_path(@article) %> |
 <%= link_to 'Retourner à la liste des articles', articles_path %>
