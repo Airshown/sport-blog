@@ -16,7 +16,8 @@
           <th class="col-md-3">Titre</th>
           <th class="col-md-1">Publié</th>
           <th class="col-md-2">Catégorie</th>
-          <th class="col-md-2">Créé le </th>
+          <th class="col-md-1">Créé le </th>
+          <th class="col-md-1"> <%= t('activerecord.attributes.user.created_by') %></th>
           <th class="col-md-4">Options</th>
         </tr>
       </thead>
@@ -34,6 +35,7 @@
             </td>
             <td><%= article.categorie %></td>
             <td><%= article.created_at.strftime('%d/%m/%Y %H:%M') %></td>
+            <td><%= article.created_by %></td>
             <td>
               <%= link_to article, class: "btn btn-primary" do %>
                 <span class="glyphicon glyphicon-eye-open"></span> Voir
