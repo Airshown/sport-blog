@@ -15,6 +15,12 @@ class ArticlesController < ApplicationController
 
   # GET /articles/new
   def new
+    ability = Ability.new(current_user)
+    if current_user.has_role? :admin
+       @ok = "oui"
+    else
+       @ok = "non"
+    end
     @article = Article.new
   end
 

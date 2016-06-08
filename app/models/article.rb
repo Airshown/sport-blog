@@ -1,6 +1,6 @@
 class Article < ActiveRecord::Base 
 	extend FriendlyId
-  
+     resourcify
 
   belongs_to :categorie
   belongs_to :created_by, :class_name => "User", :foreign_key => 'user_id', :validate => true
