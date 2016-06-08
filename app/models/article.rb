@@ -1,7 +1,9 @@
 class Article < ActiveRecord::Base 
 	extend FriendlyId
-    
+  
+
   belongs_to :categorie
+  belongs_to :created_by, :class_name => "User", :foreign_key => 'user_id', :validate => true
   has_attached_file :photo, styles: { large: "600x600>", medium: "300x300>", thumb: "100x100>" }
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
   validates_attachment_file_name :photo, matches: [/png\Z/, /jpe?g\Z/, /gif\Z/]

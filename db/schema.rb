@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160607142223) do
+ActiveRecord::Schema.define(version: 20160607154829) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "titre"
@@ -25,9 +25,11 @@ ActiveRecord::Schema.define(version: 20160607142223) do
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.string   "slug"
+    t.integer  "user_id"
   end
 
   add_index "articles", ["categorie_id"], name: "index_articles_on_categorie_id"
+  add_index "articles", ["user_id"], name: "index_articles_on_user_id"
 
   create_table "categories", force: :cascade do |t|
     t.string   "nom"
