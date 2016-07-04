@@ -50,3 +50,23 @@ a.btn-success {
 .dropdown:hover ul {
     display: block;
 }
+
+.caption > p {
+    text-align: justify;
+}
+
+.caption-full, .ratings {
+   padding: 0px 20px; 
+}
+
+.thumbnail {
+    padding-top: 15px;
+}
+
+.jumbotron p {
+    line-height: 1.5em;  
+}
+
+.jumbotron {
+    background-color: #ecf0f1;
+}

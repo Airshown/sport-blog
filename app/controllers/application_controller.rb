@@ -11,4 +11,9 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.for(:account_update) << :username
   end
   
+  before_filter :global_categories
+  def global_categories
+    @categories = Categorie.all
+  end
+  
 end
