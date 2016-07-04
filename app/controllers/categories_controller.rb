@@ -30,7 +30,7 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to categories_path, notice: 'Categorie enregistrée.' }
+        format.html { redirect_to categories_path, notice: 'Succès : Categorie enregistrée.' }
         format.json { render :show, status: :created, location: categories_path }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class CategoriesController < ApplicationController
   def update
     respond_to do |format|
       if @category.update(category_params)
-        format.html { redirect_to categories_path, notice: 'Categorie modifiée.' }
+        format.html { redirect_to categories_path, notice: 'Succès : Categorie modifiée.' }
         format.json { render :show, status: :ok, location: categories_path }
       else
         format.html { render :edit }
@@ -58,7 +58,7 @@ class CategoriesController < ApplicationController
   def destroy
     @category.destroy
     respond_to do |format|
-      format.html { redirect_to categories_url, notice: 'Categorie supprimée.' }
+      format.html { redirect_to categories_url, notice: 'Succès : Categorie supprimée.' }
       format.json { head :no_content }
     end
   end
