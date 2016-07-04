@@ -4,6 +4,10 @@
     <p>Ce Blog est le fruit d'un projet au sein de l'ESGI et à été entièrement développé avec la technologie Ruby On Rails.</p>
 </header>
 
+<% if notice.present? %>
+    <p id="notice"><%= notice %></p>
+<% end %>
+
 <hr>
 
 <!-- Title -->
@@ -35,5 +39,4 @@
             </div>
         </div>
     <% end %>
-
 </div>

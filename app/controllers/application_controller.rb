@@ -14,6 +14,7 @@ class ApplicationController < ActionController::Base
   before_filter :global_categories
   def global_categories
     @categories = Categorie.all
+    @articles = Article.all
   end
   
 end
