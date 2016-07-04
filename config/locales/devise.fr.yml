@@ -11,29 +11,29 @@ fr:
       inactive: "Votre compte n'est pas encore activé."
       invalid: "Invalide %{authentication_keys} ou mot de passe."
       locked: "Votre compte est bloqué."
-      last_attempt: "You have one more attempt before your account is locked."
-      not_found_in_database: "Invalid %{authentication_keys} or password."
-      timeout: "Your session expired. Please sign in again to continue."
+      last_attempt: "Attention : Il ne reste plus qu'un essai avant que votre compte ne soit bloqué."
+      not_found_in_database: "Invalide %{authentication_keys} ou mot de passe."
+      timeout: "Votre session à expiré. Veuillez vous reconnecter pour continuer."
       unauthenticated: "You need to sign in or sign up before continuing."
       unconfirmed: "You have to confirm your email address before continuing."
     mailer:
       confirmation_instructions:
         subject: "Confirmation instructions"
       reset_password_instructions:
-        subject: "Reset password instructions"
+        subject: "Réinitialisation du mot de passe"
       unlock_instructions:
         subject: "Unlock instructions"
       password_change:
-        subject: "Password Changed"
+        subject: "Mot de passe modifié"
     omniauth_callbacks:
-      failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
+      failure: "Erreur : Impossbile de vous identifier à partir de %{kind} car \"%{reason}\"."
       success: "Successfully authenticated from %{kind} account."
     passwords:
       no_token: "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided."
       send_instructions: "You will receive an email with instructions on how to reset your password in a few minutes."
       send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes."
-      updated: "Your password has been changed successfully. You are now signed in."
-      updated_not_active: "Your password has been changed successfully."
+      updated: "Succès : Votre mot de passe à bien été changé. Vous êtes maintenant connecté."
+      updated_not_active: "Succès : Votre mot de passe à bien été modifé."
     registrations:
       destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
       signed_up: "Welcome! You have signed up successfully."
@@ -43,9 +43,9 @@ fr:
       update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirm link to confirm your new email address."
       updated: "Your account has been updated successfully."
     sessions:
-      signed_in: "Signed in successfully."
-      signed_out: "Signed out successfully."
-      already_signed_out: "Signed out successfully."
+      signed_in: "Succès : Vous êtes maintenant connecté."
+      signed_out: "Succès : Vous avez été déconnecté."
+      already_signed_out: "Succès : Vous avez été déconnecté."
     unlocks:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
