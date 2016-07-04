@@ -30,7 +30,7 @@ fr:
       success: "Successfully authenticated from %{kind} account."
     passwords:
       no_token: "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided."
-      send_instructions: "You will receive an email with instructions on how to reset your password in a few minutes."
+      send_instructions: "Vous recevrez un mail avec les instructions pour changer votre mot de passe dans quelques minutes."
       send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes."
       updated: "Succès : Votre mot de passe à bien été changé. Vous êtes maintenant connecté."
       updated_not_active: "Succès : Votre mot de passe à bien été modifé."
