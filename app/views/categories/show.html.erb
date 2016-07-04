@@ -1,35 +1,45 @@
-<h3>
-  <strong>Catégorie : <% @idCategorie %></strong>
-  <%= @category.nom %>
-</h3>
-
-<% if notice.present? %>
-  <p id="notice"><%= notice %></p>
-<% end %>
-
-<hr>
-
-<% @articles.each do |article| %>
-    <div class="col-md-3 col-sm-6 hero-feature">
-        <div class="thumbnail">
-            <% if article.photo.exists? %>
-                <%= image_tag article.photo(:medium) %> 
-            <% else %>
-                <img src="http://placehold.it/800x500" alt="Image par défaut">
+<div class="container mt-20">
+    <div class="row">
+        <div class="col-lg-12">
+            <h3>
+              <strong>Catégorie :</strong>
+              <%= @category.nom %>
+            </h3>
+            
+            <% if notice.present? %>
+                <p id="notice"><%= notice %></p>
             <% end %>
-            <div class="caption">
-                <h3><%= link_to article.titre, article %></h3>
-                <p><%= truncate(strip_tags(article.contenu), length: 165) %></p>
-                
-                <%= link_to article, class: 'btn btn-primary' do %>
-                    Lire la suite
-                <% end %>
-            </div>
+            
+            <hr>
+        </div>
+        
+        <div class="col-md-12">
+            <% @articles.each do |article| %>
+                <div class="col-md-3 col-sm-6 hero-feature">
+                    <div class="thumbnail">
+                        <% if article.photo.exists? %>
+                            <%= image_tag article.photo(:medium) %> 
+                        <% else %>
+                            <img src="http://placehold.it/800x500" alt="Image par défaut">
+                        <% end %>
+                        <div class="caption">
+                            <h3><%= link_to article.titre, article %></h3>
+                            <p><%= truncate(strip_tags(article.contenu), length: 165) %></p>
+                            
+                            <%= link_to article, class: 'btn btn-primary' do %>
+                                Lire la suite
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+        
+        <div class="col-md-12">
+            <% if user_signed_in? %>
+                <%= link_to 'Modifier la catégorie', edit_category_path(@category) %> |
+                <%= link_to 'Retourner à la liste des catégories', categories_path %>
+            <% end %>
         </div>
     </div>
-<% end %>
-
-<% if user_signed_in? %>
-  <%= link_to 'Modifier la catégorie', edit_category_path(@category) %> |
-  <%= link_to 'Retourner à la liste des catégories', categories_path %>
-<% end %>
+</div>
