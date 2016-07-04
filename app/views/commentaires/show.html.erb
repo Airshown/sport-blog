@@ -1,0 +1,21 @@
+<% if notice.present? %>
+  <p id="notice"><%= notice %></p>
+<% end %>
+
+<p>
+  <strong><%= t('activerecord.attributes.commentaire.contenu') %>:</strong>
+  <%= @commentaire.contenu %>
+</p>
+
+<p>
+  <strong><%= t('activerecord.attributes.user.created_by') %>:</strong>
+  <%= @commentaire.created_by %>
+</p>
+
+<p>
+  <strong><%= t('activerecord.attributes.user.article') %>:</strong>
+  <%= @commentaire.article %>
+</p>
+
+<%= link_to t('btn_update'), edit_commentaire_path(@commentaire) %> |
+<%= link_to t('list_of_comments'), commentaires_path %>

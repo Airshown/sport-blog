@@ -22,4 +22,9 @@ class Article < ActiveRecord::Base
   	titre_changed? || super
   end
 
+  # methode toString()
+  def to_s
+      self.titre
+  end
+  
 end

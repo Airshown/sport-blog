@@ -29,7 +29,7 @@ class CategoriesController < ApplicationController
   # POST /categories.json
   def create
     @category = Categorie.new(category_params)
-
+    @article.created_by = current_user
     respond_to do |format|
       if @category.save
         format.html { redirect_to categories_path, notice: 'Succès : Categorie enregistrée.' }
@@ -45,6 +45,7 @@ class CategoriesController < ApplicationController
   # PATCH/PUT /categories/1.json
   def update
     respond_to do |format|
+      @article.created_by = current_user
       if @category.update(category_params)
         format.html { redirect_to categories_path, notice: 'Succès : Categorie modifiée.' }
         format.json { render :show, status: :ok, location: categories_path }

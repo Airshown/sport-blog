@@ -1,0 +1,49 @@
+<% if notice.present? %>
+  <p id="notice"><%= notice %></p>
+<% end %>
+
+<h1><%= t('list_of_comments') %></h1>
+
+<br>
+  <%= link_to new_commentaire_path, class: "btn btn-success" do %>
+    <span class="glyphicon glyphicon-plus"></span> <%= t('btn_new') %>
+  <% end %>
+
+<table class="table">
+  <thead>
+    <tr>
+    <th class="col-md-1">Id</th>
+    <th class="col-md-3"><%= t('activerecord.attributes.commentaire.contenu') %></th>
+    <th class="col-md-1"><%= t('activerecord.attributes.commentaire.created_at') %></th>
+    <th class="col-md-2"><%= t('activerecord.attributes.user.created_by') %></th>
+    <th class="col-md-1"><%= t('activerecord.attributes.user.article') %></th>
+    <th class="col-md-4">Options</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @commentaires.each do |commentaire| %>
+      <tr>
+        <td><%= commentaire.id %></td>
+        <td><%= commentaire.contenu %></td>
+        <td><%= commentaire.created_at.strftime('%d/%m/%Y %H:%M') %></td>
+        <td><%= commentaire.created_by %></td>
+        <td><%= commentaire.article %></td>
+        <td>
+          <%= link_to commentaire, class: "btn btn-primary" do %>
+            <span class="glyphicon glyphicon-eye-open"></span> <%= t('btn_see') %>
+          <% end %>
+          <%= link_to edit_commentaire_path(commentaire), class: "btn btn-warning" do %>
+            <span class="glyphicon glyphicon-pencil"></span> <%= t('btn_update') %>
+          <% end %>
+          <%= link_to commentaire, method: :delete, data: { confirm: 'Voulez-vous vraiment supprimer ce commentaire?' }, class: "btn btn-danger" do %>
+            <span class="glyphicon glyphicon-remove"></span> <%= t('btn_delete') %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

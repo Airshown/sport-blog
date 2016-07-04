@@ -68,4 +68,19 @@ fr:
         submit: "Se connecter"
         remember_me: "Rester connecté"
         created_by: Créé par
-      
+      commentaire:
+        contenu: Contenu
+        created_at: Créé le
+        created_by: Créé par
+        article: Article
+  btn_save: Enregistrer
+  return_list_of_comment: Retourner à la liste des commentaires
+  list_of_comments: Liste des Commentaires
+  new_comment: Nouveau Commentaire
+  btn_see: Voir
+  btn_update: Modifier
+  btn_delete: Supprimer
+  btn_new: Nouveau
+  commentaire_flash_destroy: Le commentaire a bien été supprimé
+  commentaire_flash_save: Le commenatire a bien été enregistré
+  
