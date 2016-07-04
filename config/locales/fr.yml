@@ -41,7 +41,23 @@ fr:
       user:
         update: "Modifier"
         create: "S'inscrire"
+  simple_form:
+    error_notification:
+      default_message: "Erreur : Veuillez corriger les erreurs indiquées ci-dessous."
   activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "Veuillez renseigner ce champ"
+              invalid: "Veuillez renseigner une adresse mail valide"
+            username:
+              blank: "Veuillez renseigner ce champ"
+              invalid: "Veuillez renseigner un nom d'utilisateur valide"
+            password:
+              blank: "Veuillez renseigner ce champ"
+              invalid: "Veuillez renseigner un mot de passe de plus de 6 caractères"
     attributes:
       user:
         email: "Adresse mail"
