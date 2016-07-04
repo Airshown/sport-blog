@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  get 'login' => 'users#login'
-  # get 'categories/:id' => 'categories#view'
+  # get 'login' => 'users#login'
+  get 'categories/:slug' => 'categories#show'
   # get 'profile' => 'users#profile'
   root 'home#index'
 
