@@ -93,4 +93,7 @@ fr:
   no_comment: Aucun commentaire
   you_have_to: Vous devez
   to_leave_comment: pour laisser un commentaire
-  
+  error403: Vous ne pouvez accéder à cette page
+  error403_message: Vous n'êtes pas autorisé à accéder à cette page
+  error.404: Erreur 404
+  error.404_message: Désolé, la page demandée n'existe pas

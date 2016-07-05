@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :is_admin, only: [:index, :edit, :new, :update, :destroy]
+
 
   # GET /articles
   # GET /articles.json
@@ -18,12 +20,6 @@ class ArticlesController < ApplicationController
 
   # GET /articles/new
   def new
-    ability = Ability.new(current_user)
-    if current_user.has_role? :admin
-       @ok = "oui"
-    else
-       @ok = "non"
-    end
     @article = Article.new
   end
 
@@ -77,6 +73,14 @@ class ArticlesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_article
       @article = Article.find(params[:id])
+    end
+    
+    def is_admin
+      # ability = Ability.new(current_user)
+      if current_user.has_role? :admin
+      else
+         render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

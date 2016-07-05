@@ -15,6 +15,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav pull-right">
                 <% if user_signed_in? %>
+                   <% if current_user.has_role? :admin %>
                     <li>
                         <%= link_to 'Articles', articles_path %>
                     </li>
@@ -24,6 +25,7 @@
                     <li>
                         <%= link_to 'Commentaires', commentaires_path %>
                     </li>
+                    <% end %>
                 <% else %>
                     <li class="dropdown">
                         <%= link_to 'Catégories', categories_path, class: "dropdown-toggle" %>

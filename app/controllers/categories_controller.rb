@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
-
+  before_action :is_admin, only: [:index, :edit, :new, :update, :destroy]
+  
   # GET /categories
   # GET /categories.json
   def index
@@ -70,6 +71,14 @@ class CategoriesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_category
       @category = Categorie.find(params[:id])
+    end
+    
+    def is_admin
+      # ability = Ability.new(current_user)
+      if current_user.has_role? :admin
+      else
+         render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

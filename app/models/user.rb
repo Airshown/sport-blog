@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   rolify
+  resourcify
 
   has_many :articles, :foreign_key => 'user_id'
   

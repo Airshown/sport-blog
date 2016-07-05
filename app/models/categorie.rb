@@ -1,7 +1,8 @@
 class Categorie < ActiveRecord::Base
 	extend FriendlyId
       include SearchCop
-
+  resourcify
+  
 	has_many :articles
     friendly_id :slug_candidates, use: [:slugged, :finders]
 
