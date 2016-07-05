@@ -53,7 +53,7 @@
                     <% if user_signed_in? %>
                         <a class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span> <%= t('leave_comment') %></a>
                     <% else %>
-                        <p><span class="glyphicon glyphicon-alert"></span> Vous devez <%= link_to 'vous connecter', new_user_session_path %> pour laisser un commentaire.</p>
+                        <p><span class="glyphicon glyphicon-alert"></span> <%= t('you_have_to') %> <%= link_to 'vous connecter', new_user_session_path %> <%= t('to_leave_comment') %>.</p>
                     <% end %>
                 </div>
 
