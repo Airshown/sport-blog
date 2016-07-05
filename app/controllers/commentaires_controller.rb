@@ -1,6 +1,6 @@
 class CommentairesController < ApplicationController
   before_action :set_commentaire, only: [:show, :edit, :update, :destroy]
-  before_action :is_admin, only: [:index, :edit, :new, :update, :destroy]
+  before_action :is_admin
 
   # GET /commentaires
   # GET /commentaires.json
@@ -72,13 +72,17 @@ class CommentairesController < ApplicationController
     end
 
     def is_admin
-      # ability = Ability.new(current_user)
-      if current_user.has_role? :admin
-      else
+      if !user_signed_in?
          render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
+      else
+        # ability = Ability.new(current_user)
+        # if !ability.can? :manage, :all
+        if !current_user.has_role?(:admin, current_user)
+           render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
+        end
       end
     end
-    
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def commentaire_params
       params.require(:commentaire).permit(:contenu, :user_id, :article_id)

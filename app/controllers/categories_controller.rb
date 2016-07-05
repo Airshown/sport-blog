@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
-  before_action :is_admin, only: [:index, :edit, :new, :update, :destroy]
+  before_action :is_admin, except: [:show]
   
   # GET /categories
   # GET /categories.json
@@ -74,10 +74,12 @@ class CategoriesController < ApplicationController
     end
     
     def is_admin
-      # ability = Ability.new(current_user)
-      if current_user.has_role? :admin
-      else
+      if !user_signed_in?
          render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
+      else
+        if !current_user.has_role?(:admin, current_user)
+           render(:file => File.join(Rails.root, 'public/403.html'), :status => 403, :layout => false)
+        end
       end
     end
 

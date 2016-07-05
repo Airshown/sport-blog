@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  rolify
+  rolify strict: true
   resourcify
 
   has_many :articles, :foreign_key => 'user_id'
@@ -13,5 +13,9 @@ class User < ActiveRecord::Base
 
   def to_s
       self.username
-   end
+  end
+
+  # def is_admin
+  #   User.find_roles(:admin, current_user)
+  # end
 end
