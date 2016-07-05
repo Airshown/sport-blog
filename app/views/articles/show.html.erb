@@ -18,7 +18,7 @@
             <div class="thumbnail">
                 <%= image_tag @article.photo, :class => "img-responsive" %>
                 <div class="caption-full">
-                    <h5 class="pull-right">Publié le <%= l @article.created_at, format: :short %></h5>
+                    <h5 class="pull-right"><span class="glyphicon glyphicon-time"></span> <%= t('published_by') %> <%= l @article.created_at, format: :short %> <%= t('by') %> <%= @article.created_by %></h5>
                     <h4><%= @article.titre %></h4>
                     
                     <%= @article.contenu.html_safe %>
@@ -28,7 +28,14 @@
                 <hr>
                 
                 <div class="ratings">
-                    <p class="pull-right">2 <%= t('comments') %></p>
+                    <p class="pull-right">
+                        <% if @comments.present? %>
+                            <a href="#comments"><%= @comments.count %> <% if @comments.count > 1 %><%= t('comments') %><% else %><%= t('comment') %><% end %></a>
+                        <% else %>
+                            <span class="black"><%= t('no_comment') %></span>
+                        <% end %>
+                    </p>
+                    
                     <p>
                         <span class="glyphicon glyphicon-star"></span>
                         <span class="glyphicon glyphicon-star"></span>
@@ -40,41 +47,43 @@
                 </div>
             </div>
 
-            <div class="well">
-
+            <div id="comments" class="well">
+                
                 <div class="text-right">
-                    <a class="btn btn-success"><%= t('leave_comment') %></a>
+                    <% if user_signed_in? %>
+                        <a class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span> <%= t('leave_comment') %></a>
+                    <% else %>
+                        <p><span class="glyphicon glyphicon-alert"></span> Vous devez <%= link_to 'vous connecter', new_user_session_path %> pour laisser un commentaire.</p>
+                    <% end %>
                 </div>
 
-                <hr>
-
-                <div class="row">
-                    <div class="col-md-12">
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        Anonymous
-                        <span class="pull-right">10 days ago</span>
-                        <p>This product was great in terms of quality. I would definitely buy another!</p>
+                    
+                <% if @comments.present? %>
+                    <% @comments.each do |comment| %>
+                        <hr>
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star-empty"></span> - 
+                                <strong><%= comment.created_by %></strong> : 
+                                <span class="pull-right"><%= l comment.created_at, format: :short %></span>
+                                <p><%= comment.contenu %></p>
+                            </div>
+                        </div>
+                    <% end %>
+                <% else %>
+                    <hr>
+                        
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p><span class="glyphicon glyphicon-info-sign"></span> <%= t('no_comment_long') %></p>
+                        </div>
                     </div>
-                </div>
-
-                <hr>
-
-                <div class="row">
-                    <div class="col-md-12">
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        Anonymous
-                        <span class="pull-right">12 days ago</span>
-                        <p>I've alredy ordered another one!</p>
-                    </div>
-                </div>
+                <% end %>
             </div>
         </div>
     </div>

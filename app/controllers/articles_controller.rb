@@ -11,6 +11,9 @@ class ArticlesController < ApplicationController
   # GET /articles/1.json
   def show
     @categories = Categorie.all
+    
+    @idArticle = Article.where(slug: params[:id])
+    @comments = Commentaire.where(article_id: @idArticle)
   end
 
   # GET /articles/new
