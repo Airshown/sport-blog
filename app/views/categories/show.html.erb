@@ -36,7 +36,7 @@
         </div>
         
         <div class="col-md-12">
-            <% if user_signed_in? %>
+            <% if user_signed_in? && current_user.has_role?(:admin, current_user) %>
                 <%= link_to 'Modifier la catégorie', edit_category_path(@category) %> |
                 <%= link_to 'Retourner à la liste des catégories', categories_path %>
             <% end %>
