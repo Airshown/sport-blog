@@ -34,7 +34,7 @@ fr:
   profile_edit: Modifier mon profil
   password_forgotten: Mot de passe oublié
   password_forgotten_tip: "Me renvoyer les instructions de réinitialisation"
-  tip_actual_password: "Nous avons besoinde votre mot de passe actuel pour effectuer les modifications"
+  tip_actual_password: "Nous avons besoin de votre mot de passe actuel pour enregistrer les modifications"
   tip_password: "Laissez vide si vous ne souhaitez pas le modifier"
   time:
     formats:
@@ -77,10 +77,11 @@ fr:
         created_at: Créé le
         created_by: Créé par
         article: Article
-  btn_save: Enregistrer
   return_list_of_comment: Retourner à la liste des commentaires
   list_of_comments: Liste des Commentaires
   new_comment: Nouveau Commentaire
+  btn_save: Enregistrer
+  btn_add: Ajouter
   btn_see: Voir
   btn_update: Modifier
   btn_delete: Supprimer
@@ -94,6 +95,6 @@ fr:
   you_have_to: Vous devez
   to_leave_comment: pour laisser un commentaire
   error403: Vous ne pouvez accéder à cette page
-  error403_message: Vous n'êtes pas autorisé à accéder à cette page
+  error403_message: "Pour retourner sur la page d'accueil <a href='/'>cliquez ici</a>."
   error.404: Erreur 404
   error.404_message: Désolé, la page demandée n'existe pas

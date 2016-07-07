@@ -1,0 +1,14 @@
+<%= simple_form_for(@commentaire) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :contenu, label: "Commentaire :" %>
+  </div>
+
+  <div class="form-actions">
+    <%= button_tag(class: 'btn btn-primary') do %>
+      <span class="glyphicon glyphicon-plus"></span> <%= t('btn_add') %>
+    <% end %>
+  </div>
+  
+<% end %>

@@ -15,6 +15,9 @@ class ArticlesController < ApplicationController
     
     @idArticle = Article.where(slug: params[:id])
     @comments = Commentaire.where(article_id: @idArticle)
+    
+    @commentaire = Commentaire.new(commentaire_params)
+    @commentaire.created_by = current_user
   end
 
   # GET /articles/new
@@ -87,5 +90,9 @@ class ArticlesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
       params.require(:article).permit(:titre, :contenu, :categorie_id, :masquer, :photo,:created_by)
+    end
+    
+    def commentaire_params
+      params.permit(:contenu, :user_id, :article_id)
     end
 end

@@ -37,5 +37,9 @@ $(document).on('ready page:load', function () {
 		},
     	locale: 'fr-FR',
     });
+    
+    $('#add-comment-button').click(function() {
+    	$("#post-comment").slideDown(1000);
+    });
 });
  

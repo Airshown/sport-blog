@@ -51,7 +51,7 @@
                 
                 <div class="text-right">
                     <% if user_signed_in? %>
-                        <a class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span> <%= t('leave_comment') %></a>
+                        <a id="add-comment-button" href="#post-comment" class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span> <%= t('leave_comment') %></a>
                     <% else %>
                         <p><span class="glyphicon glyphicon-alert"></span> <%= t('you_have_to') %> <%= link_to 'vous connecter', new_user_session_path %> <%= t('to_leave_comment') %>.</p>
                     <% end %>
@@ -78,9 +78,20 @@
                 <% else %>
                     <hr>
                         
-                    <div class="row">
+                    <div class="row white-bg">
                         <div class="col-md-12">
-                            <p><span class="glyphicon glyphicon-info-sign"></span> <%= t('no_comment_long') %></p>
+                            <p class="no-margin"><span class="glyphicon glyphicon-info-sign"></span> <%= t('no_comment_long') %></p>
+                        </div>
+                    </div>
+                <% end %>
+                
+                <% if user_signed_in? %>
+                    <hr>
+                    
+                    <div id="post-comment" class="row">
+                        <div class="col-md-12">
+                            <p>Laisser un commentaire en tant que <strong><%= current_user %></strong>.</p>
+                            <%= render 'form_comment' %>
                         </div>
                     </div>
                 <% end %>
