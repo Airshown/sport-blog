@@ -26,21 +26,21 @@
                     </li>
                 <% else %>
                     <li class="dropdown">
-                        <%= link_to 'Catégories', categories_path, class: "dropdown-toggle" %>
+                        <%= link_to 'Catégories', "#", class: "dropdown-toggle", :class => active_class('/categories') %>
                         <ul class="dropdown-menu">
                             <% @categories.each do |category| %>
-                                <li><%= link_to category.nom, category_path(category) %></li>
+                                <li><%= link_to category.nom, category_path(category), :class => active_class('/categories/' + category.slug) %></li>
                             <% end %>
                         </ul>
                     </li>
                 <% end %>
                 
                 <% if user_signed_in? %>
-                    <li><%= link_to 'Mon profil', edit_user_registration_path %></li>
+                    <li><%= link_to 'Mon profil', edit_user_registration_path, :class => active_class('/users/edit') %></li>
                     <li><%= link_to 'Déconnexion', destroy_user_session_path, :method => :delete %></li>
                 <% else %>
-                    <li><%= link_to 'Inscription', new_user_registration_path %></li>
-                    <li><%= link_to 'Connexion', new_user_session_path %></li>
+                    <li><%= link_to 'Inscription', new_user_registration_path, :class => active_class('/users/sign_up') %></li>
+                    <li><%= link_to 'Connexion', new_user_session_path, :class => active_class('/users/sign_in') %></li>
                 <% end %>
             </ul>
         </div>

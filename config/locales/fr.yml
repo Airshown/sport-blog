@@ -20,6 +20,13 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 fr:
+  welcome_title: Bienvenue sur le Blog!
+  home_text: "Ce Blog est le fruit d'un projet au sein de l'ESGI et à été entièrement développé avec la technologie Ruby On Rails"
+  last_articles: Les derniers articles
+  subscribe: Inscription
+  connect_me: Je me connecte!
+  user_subscribe: "Vous n'êtes pas encore inscrit ? <a href='/users/sign_up'>Cliquez ici</a> pour nous rejoindre!"
+  already_have_account: Vous possèdez déjà un compte ?
   category: catégorie
   Category: Catégorie
   categories: catégories
@@ -92,6 +99,8 @@ fr:
   published_by: Publié le
   no_comment_long: Il n'y a aucun commentaire pour cet article. Soyez le premier !
   no_comment: Aucun commentaire
+  no_articles: Aucun article
+  no_articles_long: Cette catégorie ne possède aucun article
   you_have_to: Vous devez
   to_leave_comment: pour laisser un commentaire
   error403: Vous ne pouvez accéder à cette page

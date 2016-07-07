@@ -17,32 +17,40 @@
     <!-- /.row -->
 
     <!-- Project One -->
-    <% @articles.each_with_index do |article, index| %>
-        <div class="row">
-            <div class="col-md-4">
-                <% if article.photo.exists? %>
-                    <%= image_tag article.photo(:medium) %> 
-                <% else %>
-                    <img src="http://placehold.it/500x300" alt="Aucune image">
-                <% end %>
+    <% if @articles.present? %>
+        <% @articles.each_with_index do |article, index| %>
+            <div class="row">
+                <div class="col-md-4">
+                    <% if article.photo.exists? %>
+                        <%= image_tag article.photo(:medium) %> 
+                    <% else %>
+                        <img src="http://placehold.it/500x300" alt="Aucune image">
+                    <% end %>
+                </div>
+                
+                <div class="col-md-8">
+                    <h3><%= link_to article.titre, article %></h3>
+                    <!--<h4>Subheading</h4>-->
+                    <p><%= truncate(strip_tags(article.contenu), length: 165) %></p>
+                    <%= link_to article, class: 'btn btn-primary' do %>
+                        Lire la suite <span class="glyphicon glyphicon-chevron-right"></span>
+                    <% end %>
+                </div>
             </div>
             
-            <div class="col-md-8">
-                <h3><%= link_to article.titre, article %></h3>
-                <!--<h4>Subheading</h4>-->
-                <p><%= truncate(strip_tags(article.contenu), length: 165) %></p>
-                <%= link_to article, class: 'btn btn-primary' do %>
-                    Lire la suite <span class="glyphicon glyphicon-chevron-right"></span>
-                <% end %>
+            <% if index != @articles.size - 1 %>
+                <hr>
+            <% end %>
+            <!-- /.row -->
+        <% end %>
+    <% else %>
+        <div class="row">
+            <div class="col-md-12">
+                <p><%= t('no_articles_long') %>.</p>
             </div>
         </div>
-        
-        <% if index != @articles.size - 1 %>
-            <hr>
-        <% end %>
-        <!-- /.row -->
     <% end %>
-        
+    
     <div class="col-md-12">
         <% if user_signed_in? && current_user.has_role?(:admin, current_user) %>
             <%= link_to 'Modifier la catégorie', edit_category_path(@category) %> |
