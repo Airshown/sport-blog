@@ -1,10 +1,11 @@
 <div class="container mt-20">
+    
+    <!-- Page Heading -->
     <div class="row">
         <div class="col-lg-12">
-            <h3>
-              <strong>Catégorie :</strong>
-              <%= @category.nom %>
-            </h3>
+            <h1 class="page-header">Catégorie
+                <small> - <%= @category.nom %></small>
+            </h1>
             
             <% if notice.present? %>
                 <p id="notice"><%= notice %></p>
@@ -12,34 +13,40 @@
             
             <hr>
         </div>
-        
-        <div class="col-md-12">
-            <% @articles.each do |article| %>
-                <div class="col-md-3 col-sm-6 hero-feature">
-                    <div class="thumbnail">
-                        <% if article.photo.exists? %>
-                            <%= image_tag article.photo(:medium) %> 
-                        <% else %>
-                            <img src="http://placehold.it/800x500" alt="Image par défaut">
-                        <% end %>
-                        <div class="caption">
-                            <h3><%= link_to article.titre, article %></h3>
-                            <p><%= truncate(strip_tags(article.contenu), length: 165) %></p>
-                            
-                            <%= link_to article, class: 'btn btn-primary' do %>
-                                Lire la suite
-                            <% end %>
-                        </div>
-                    </div>
-                </div>
-            <% end %>
+    </div>
+    <!-- /.row -->
+
+    <!-- Project One -->
+    <% @articles.each_with_index do |article, index| %>
+        <div class="row">
+            <div class="col-md-4">
+                <% if article.photo.exists? %>
+                    <%= image_tag article.photo(:medium) %> 
+                <% else %>
+                    <img src="http://placehold.it/500x300" alt="Aucune image">
+                <% end %>
+            </div>
+            
+            <div class="col-md-8">
+                <h3><%= link_to article.titre, article %></h3>
+                <!--<h4>Subheading</h4>-->
+                <p><%= truncate(strip_tags(article.contenu), length: 165) %></p>
+                <%= link_to article, class: 'btn btn-primary' do %>
+                    Lire la suite <span class="glyphicon glyphicon-chevron-right"></span>
+                <% end %>
+            </div>
         </div>
         
-        <div class="col-md-12">
-            <% if user_signed_in? && current_user.has_role?(:admin, current_user) %>
-                <%= link_to 'Modifier la catégorie', edit_category_path(@category) %> |
-                <%= link_to 'Retourner à la liste des catégories', categories_path %>
-            <% end %>
-        </div>
+        <% if index != @articles.size - 1 %>
+            <hr>
+        <% end %>
+        <!-- /.row -->
+    <% end %>
+        
+    <div class="col-md-12">
+        <% if user_signed_in? && current_user.has_role?(:admin, current_user) %>
+            <%= link_to 'Modifier la catégorie', edit_category_path(@category) %> |
+            <%= link_to 'Retourner à la liste des catégories', categories_path %>
+        <% end %>
     </div>
 </div>
