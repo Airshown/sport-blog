@@ -49,7 +49,7 @@
             
             <div class="row">
                 <% if notice.present? %>
-                    <p id="notice"><%= notice %></p>
+                    <p id="notice" class="inner-article"><%= notice %></p>
                 <% end %>  
             </div>
 
@@ -95,7 +95,7 @@
                     
                     <div id="post-comment" class="row">
                         <div class="col-md-12">
-                            <p>Laisser un commentaire en tant que <strong><%= current_user %></strong>.</p>
+                            <p><%= t('leave_comment') %> <%= t('as') %> <strong><%= current_user %></strong>.</p>
                             <%= render 'form_comment' %>
                         </div>
                     </div>

@@ -39,7 +39,7 @@ $(document).on('ready page:load', function () {
     });
     
     $('#add-comment-button').click(function() {
-    	$("#post-comment").slideDown(1000);
+    	$("#post-comment").slideDown(600);
     });
 });
  
