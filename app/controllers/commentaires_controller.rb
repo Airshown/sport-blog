@@ -1,6 +1,6 @@
 class CommentairesController < ApplicationController
   before_action :set_commentaire, only: [:show, :edit, :update, :destroy]
-  before_action :is_admin
+  before_action :is_admin, except: [:add]
 
   # GET /commentaires
   # GET /commentaires.json
@@ -25,6 +25,22 @@ class CommentairesController < ApplicationController
   # POST /commentaires
   # POST /commentaires.json
   def create
+    @commentaire = Commentaire.new(commentaire_params)
+    @commentaire.created_by = current_user
+
+    respond_to do |format|
+      if @commentaire.save
+        format.html { redirect_to commentaires_path, notice: t('commentaire_flash_save') }
+        format.json { render :show, status: :created, location: @commentaire }
+      else
+        format.html { render :new }
+        format.json { render json: @commentaire.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+  
+  # POST /commentaires/add
+  def add
     @commentaire = Commentaire.new(commentaire_params)
     @commentaire.created_by = current_user
 

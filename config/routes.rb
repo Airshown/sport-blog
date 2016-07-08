@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   # get 'login' => 'users#login'
   get 'categories/:slug' => 'categories#show'
   # get 'profile' => 'users#profile'
+  post '/comment/add' => 'commentaires#add'
   root 'home#index'
 
   # Example of regular route:

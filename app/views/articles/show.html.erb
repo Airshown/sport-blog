@@ -20,9 +20,9 @@
                 <div class="caption-full">
                     <h5 class="pull-right"><span class="glyphicon glyphicon-time"></span> <%= t('published_by') %> <%= l @article.created_at, format: :short %> <%= t('by') %> <%= @article.created_by %></h5>
                     <h4><%= @article.titre %></h4>
-                    
-                    <%= @article.contenu.html_safe %>
-                    
+                    <div class="mt-20">
+                        <%= @article.contenu.html_safe %>
+                    </div>
                 </div>
                 
                 <hr>
@@ -46,23 +46,28 @@
                     </p>
                 </div>
             </div>
+            
+            <div class="row">
+                <% if notice.present? %>
+                    <p id="notice"><%= notice %></p>
+                <% end %>  
+            </div>
 
             <div id="comments" class="well">
                 
                 <div class="text-right">
                     <% if user_signed_in? %>
-                        <a id="add-comment-button" href="#post-comment" class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span> <%= t('leave_comment') %></a>
+                        <a id="add-comment-button" href="#post-comment" class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span><%= t('leave_comment') %></a>
                     <% else %>
                         <p><span class="glyphicon glyphicon-alert"></span> <%= t('you_have_to') %> <%= link_to 'vous connecter', new_user_session_path %> <%= t('to_leave_comment') %>.</p>
                     <% end %>
                 </div>
-
                     
                 <% if @comments.present? %>
                     <% @comments.each do |comment| %>
                         <hr>
                         
-                        <div class="row">
+                        <div class="row comment">
                             <div class="col-md-12">
                                 <span class="glyphicon glyphicon-star"></span>
                                 <span class="glyphicon glyphicon-star"></span>
@@ -70,7 +75,7 @@
                                 <span class="glyphicon glyphicon-star"></span>
                                 <span class="glyphicon glyphicon-star-empty"></span> - 
                                 <strong><%= comment.created_by %></strong> : 
-                                <span class="pull-right"><%= l comment.created_at, format: :short %></span>
+                                <span class="pull-right"><%= t('Added_comment') %> <strong><%= l comment.created_at, format: :short %></strong></span>
                                 <p><%= comment.contenu %></p>
                             </div>
                         </div>
