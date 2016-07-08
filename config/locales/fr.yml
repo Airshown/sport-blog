@@ -24,7 +24,11 @@ fr:
   home_text: "Ce Blog est le fruit d'un projet au sein de l'ESGI et à été entièrement développé avec la technologie Ruby On Rails"
   last_articles: Les derniers articles
   subscribe: Inscription
+  join_us: Rejoins-nous
   connect_me: Je me connecte!
+  subscribe_me: Je m'inscris
+  reinitialize: Réinitialiser
+  send_again: Renvoyer
   user_subscribe: "Vous n'êtes pas encore inscrit ? <a href='/users/sign_up'>Cliquez ici</a> pour nous rejoindre!"
   already_have_account: Vous possèdez déjà un compte ?
   category: catégorie

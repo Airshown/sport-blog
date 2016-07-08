@@ -32,17 +32,13 @@
                         <% if @comments.present? %>
                             <a href="#comments"><%= @comments.count %> <% if @comments.count > 1 %><%= t('comments') %><% else %><%= t('comment') %><% end %></a>
                         <% else %>
-                            <span class="black"><%= t('no_comment') %></span>
+                            <span class="glyphicon glyphicon-comment"></span><span class="black"><%= t('no_comment') %></span>
                         <% end %>
                     </p>
                     
                     <p>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        4.0 étoiles
+                        <span class="glyphicon glyphicon-folder-open"></span>
+                        <%= link_to @article.categorie, category_path(@article.categorie) %>
                     </p>
                 </div>
             </div>
@@ -69,12 +65,7 @@
                         
                         <div class="row comment">
                             <div class="col-md-12">
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star-empty"></span> - 
-                                <strong><%= comment.created_by %></strong> : 
+                                <span class="glyphicon glyphicon-user"></span><strong><%= comment.created_by %></strong> : 
                                 <span class="pull-right"><%= t('Added_comment') %> <strong><%= l comment.created_at, format: :short %></strong></span>
                                 <p><%= comment.contenu %></p>
                             </div>
@@ -85,7 +76,7 @@
                         
                     <div class="row white-bg">
                         <div class="col-md-12">
-                            <p class="no-margin"><span class="glyphicon glyphicon-info-sign"></span> <%= t('no_comment_long') %></p>
+                            <p class="no-margin"><span class="glyphicon glyphicon-info-sign"></span><%= t('no_comment_long') %></p>
                         </div>
                     </div>
                 <% end %>

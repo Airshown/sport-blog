@@ -17,7 +17,9 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, :class => "btn-primary" %>
+    <%= button_tag(class: 'btn btn-primary') do %>
+      <span class="glyphicon glyphicon-ok"></span><%=t :subscribe_me %>
+    <% end %>
   </div>
 <% end %>
 
