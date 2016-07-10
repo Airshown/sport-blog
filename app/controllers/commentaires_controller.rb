@@ -46,7 +46,7 @@ class CommentairesController < ApplicationController
 
     respond_to do |format|
       if @commentaire.save
-        format.html { redirect_to commentaires_path, notice: t('commentaire_flash_save') }
+        format.html { redirect_to :back, notice: t('commentaire_flash_save') }
         format.json { render :show, status: :created, location: @commentaire }
       else
         format.html { render :new }

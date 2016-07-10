@@ -6,6 +6,8 @@
 
   <div class="form-inputs">
     <%= f.input :contenu, label: t('Comment') + " :" %>
+    
+    <%= f.hidden_field :article_id, :value => @article.id %>
   </div>
 
   <div class="form-actions">
