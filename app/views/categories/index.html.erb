@@ -1,10 +1,11 @@
 <div class="row">
   <div class="col-md-12">
-    <% if notice.present? %><p id="notice"><%= notice %></p><% end %>
     
     <h1>Liste des Catégories</h1>
     
-    <br>
+    <hr>
+    
+    <% if notice.present? %><p id="notice"><%= raw notice %></p><% end %>
     
     <%= link_to new_category_path, class: "btn btn-success" do %>
       <span class="glyphicon glyphicon-plus"></span> Nouveau
@@ -13,8 +14,8 @@
     <table class="table">
       <thead>
         <tr>
-          <th class="col-md-9">Nom</th>
-          <th class="col-md-3">Options</th>
+          <th class="col-md-8">Nom</th>
+          <th class="col-md-4">Options</th>
         </tr>
       </thead>
     
@@ -23,6 +24,9 @@
           <tr>
             <td><%= category.nom %></td>
             <td>
+              <%= link_to category, class: "btn btn-primary" do %>
+                <span class="glyphicon glyphicon-eye-open"></span> Voir
+              <% end %>
               <%= link_to edit_category_path(category), class: "btn btn-warning" do %>
                 <span class="glyphicon glyphicon-pencil"></span> Modifier
               <% end %>
@@ -35,8 +39,6 @@
       </tbody>
     </table>
     
-    <div class="pagination">
-       <%= will_paginate @categories, :container => false, renderer: BootstrapPagination::Rails %>
-    </div>
+    <%= will_paginate @categories, renderer: BootstrapPagination::Rails %>
   </div>
 </div>

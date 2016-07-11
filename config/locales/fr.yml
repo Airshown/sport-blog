@@ -22,13 +22,28 @@
 fr:
   welcome_title: Bienvenue sur le Blog!
   home_text: "Ce Blog est le fruit d'un projet au sein de l'ESGI et à été entièrement développé avec la technologie Ruby On Rails"
+  hello_date: Bonjour nous sommes le
+  list_categories: Liste des catégories
+  list_articles: Liste des articles
+  list_comments: Liste des commentaires
   last_articles: Les derniers articles
+  edit: Modifier
+  edit_article: Modifier l'article
+  edit_category: Modifier la catégorie
+  my_account: Mon compte
+  welcome_back: "Bon retour parmis nous"
+  check_account: vous pouvez-vous rendre sur votre compte
+  here: ici
   subscribe: Inscription
   join_us: Rejoins-nous
   connect_me: Je me connecte!
+  My_account: Mon compte
+  Log_in: Connexion
+  Log_out: Déconnexion
   subscribe_me: Je m'inscris
   reinitialize: Réinitialiser
   send_again: Renvoyer
+  admin_options: Options administrateur
   user_subscribe: "Vous n'êtes pas encore inscrit ? <a href='/users/sign_up'>Cliquez ici</a> pour nous rejoindre!"
   already_have_account: Vous possèdez déjà un compte ?
   category: catégorie
@@ -99,8 +114,16 @@ fr:
   btn_update: Modifier
   btn_delete: Supprimer
   btn_new: Nouveau
-  commentaire_flash_destroy: Le commentaire a bien été supprimé
-  commentaire_flash_save: Le commenatire a bien été enregistré
+  commentaire_flash_destroy: "<b>Succès :</b> le commentaire a été supprimé."
+  commentaire_flash_save: "<b>Succès :</b> le commentaire a été enregistré."
+  category_flash_save: "<b>Succès :</b> la catégorie a été enregistrée."
+  category_flash_destroy: "<b>Succès :</b> la catégorie a été supprimée."
+  return_articles: < Retourner à la liste des articles
+  return_categories: < Retourner à la liste des catégories
+  return_comments: < Retourner à la liste des commentaires
+  edit_comment: Modification du commentaire
+  edit_article: Modification de l'article
+  edit_category: Modification de la catégorie
   by: par
   published_by: Publié le
   no_comment_long: Il n'y a aucun commentaire pour cet article. Soyez le premier !
@@ -113,3 +136,101 @@ fr:
   error403_message: "Pour retourner sur la page d'accueil <a href='/'>cliquez ici</a>."
   error.404: Erreur 404
   error.404_message: Désolé, la page demandée n'existe pas
+  date:
+    abbr_day_names:
+    - dim
+    - lun
+    - mar
+    - mer
+    - jeu
+    - ven
+    - sam
+    abbr_month_names:
+    -
+    - jan.
+    - fév.
+    - mar.
+    - avr.
+    - mai
+    - juin
+    - juil.
+    - août
+    - sept.
+    - oct.
+    - nov.
+    - déc.
+    day_names:
+    - dimanche
+    - lundi
+    - mardi
+    - mercredi
+    - jeudi
+    - vendredi
+    - samedi
+    formats:
+      default: "%d/%m/%Y"
+      short: "%e %b"
+      long: "%e %B %Y"
+    month_names:
+    -
+    - janvier
+    - février
+    - mars
+    - avril
+    - mai
+    - juin
+    - juillet
+    - août
+    - septembre
+    - octobre
+    - novembre
+    - décembre
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: environ une heure
+        other: environ %{count} heures
+      about_x_months:
+        one: environ un mois
+        other: environ %{count} mois
+      about_x_years:
+        one: environ un an
+        other: environ %{count} ans
+      almost_x_years:
+        one: presqu'un an
+        other: presque %{count} ans
+      half_a_minute: une demi-minute
+      less_than_x_minutes:
+        zero: moins d'une minute
+        one: moins d'une minute
+        other: moins de %{count} minutes
+      less_than_x_seconds:
+        zero: moins d'une seconde
+        one: moins d'une seconde
+        other: moins de %{count} secondes
+      over_x_years:
+        one: plus d'un an
+        other: plus de %{count} ans
+      x_days:
+        one: 1 jour
+        other: "%{count} jours"
+      x_minutes:
+        one: 1 minute
+        other: "%{count} minutes"
+      x_months:
+        one: 1 mois
+        other: "%{count} mois"
+      x_seconds:
+        one: 1 seconde
+        other: "%{count} secondes"
+    prompts:
+      day: Jour
+      hour: Heure
+      minute: Minute
+      month: Mois
+      second: Seconde
+      year: Année

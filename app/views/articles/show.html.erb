@@ -45,7 +45,7 @@
             
             <div class="row">
                 <% if notice.present? %>
-                    <p id="notice" class="inner-article"><%= notice %></p>
+                    <p id="notice" class="inner-article"><%= raw notice %></p>
                 <% end %>  
             </div>
 
@@ -63,7 +63,7 @@
                     <% @comments.each do |comment| %>
                         <hr>
                         
-                        <div class="row comment">
+                        <div id="comment-<%= comment.id %>" class="row comment">
                             <div class="col-md-12">
                                 <span class="glyphicon glyphicon-user"></span><strong><%= comment.created_by %></strong> : 
                                 <span class="pull-right"><%= t('Added_comment') %> <strong><%= l comment.created_at, format: :short %></strong></span>
@@ -94,11 +94,16 @@
             </div>
         </div>
     </div>
+    
+    <hr>
+    
+    <% if user_signed_in? && current_user.has_role?(:admin, current_user) %>
+        <div class="col-md-12">
+            <b><%= t('admin_options') %> :</b>
+            <%= link_to t('edit_article'), edit_article_path(@article) %> |
+            <%= link_to t('list_articles'), articles_path %>
+        </div>
+    <% end %>
 </div>
 <!-- /.container -->
-
-<% if user_signed_in? && current_user.has_role?(:admin, current_user) %>
-    <%= link_to 'Modifier', edit_article_path(@article) %> |
-    <%= link_to 'Retourner à la liste des articles', articles_path %>
-<% end %>
 

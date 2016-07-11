@@ -43,6 +43,9 @@
             <% end %>
             <!-- /.row -->
         <% end %>
+        
+        <hr>
+        <%= will_paginate @articles, renderer: BootstrapPagination::Rails %>
     <% else %>
         <div class="row">
             <div class="col-md-12">
@@ -51,10 +54,11 @@
         </div>
     <% end %>
     
-    <div class="col-md-12">
-        <% if user_signed_in? && current_user.has_role?(:admin, current_user) %>
-            <%= link_to 'Modifier la catégorie', edit_category_path(@category) %> |
-            <%= link_to 'Retourner à la liste des catégories', categories_path %>
-        <% end %>
-    </div>
+    <% if user_signed_in? && current_user.has_role?(:admin, current_user) %>
+        <div class="col-md-12">
+            <b><%= t('admin_options') %> :</b>
+            <%= link_to t('edit_category'), edit_category_path(@category) %> |
+            <%= link_to t('list_categories'), categories_path %>
+        </div>
+    <% end %>
 </div>

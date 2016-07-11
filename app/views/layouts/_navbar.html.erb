@@ -14,19 +14,24 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav pull-right">
-                <% if user_signed_in? && current_user.has_role?(:admin, current_user)%>
+                <% if user_signed_in? && current_user.has_role?(:admin, current_user) %>
                     <li>
                         <%= link_to 'Articles', articles_path %>
                     </li>
-                    <li>
-                        <%= link_to 'Catégories', categories_path %>
+                    <li class="dropdown">
+                        <%= link_to t('Categories'), categories_path, class: "dropdown-toggle" %>
+                        <ul class="dropdown-menu">
+                            <% @categories.each do |category| %>
+                                <li><%= link_to category.nom, category_path(category) %></li>
+                            <% end %>
+                        </ul>
                     </li>
                     <li>
-                        <%= link_to 'Commentaires', commentaires_path %>
+                        <%= link_to t('Comments'), commentaires_path %>
                     </li>
                 <% else %>
                     <li class="dropdown">
-                        <%= link_to 'Catégories', "#", class: "dropdown-toggle" %>
+                        <%= link_to t('Categories'), "#", class: "dropdown-toggle" %>
                         <ul class="dropdown-menu">
                             <% @categories.each do |category| %>
                                 <li><%= link_to category.nom, category_path(category) %></li>
@@ -36,11 +41,11 @@
                 <% end %>
                 
                 <% if user_signed_in? %>
-                    <li><%= link_to 'Mon profil', edit_user_registration_path %></li>
-                    <li><%= link_to 'Déconnexion', destroy_user_session_path, :method => :delete %></li>
+                    <li><%= link_to t('My_account'), edit_user_registration_path %></li>
+                    <li><%= link_to t('Log_out'), destroy_user_session_path, :method => :delete %></li>
                 <% else %>
-                    <li><%= link_to 'Inscription', new_user_registration_path %></li>
-                    <li><%= link_to 'Connexion', new_user_session_path %></li>
+                    <li><%= link_to t('Subscribe'), new_user_registration_path %></li>
+                    <li><%= link_to t('Log_in'), new_user_session_path %></li>
                 <% end %>
             </ul>
         </div>

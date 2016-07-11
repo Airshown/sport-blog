@@ -1,5 +1,9 @@
-<h1>Modification du commentaire n°<%= @commentaire.id %></h1>
+<h1><%= t('edit_comment') %> n°<%= @commentaire.id %></h1>
+
+<hr>
 
 <%= render 'form' %>
 
-<%= link_to t('return_list_of_comment'), commentaires_path %>
+<hr>
+
+<%= link_to t('return_comments'), commentaires_path %>

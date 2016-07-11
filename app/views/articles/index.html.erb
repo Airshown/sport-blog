@@ -1,12 +1,11 @@
 <div class="row">
   <div class="col-md-12">
-    <% if notice.present? %>
-      <p id="notice"><%= notice %></p>
-    <% end %>
     
-    <h1>Liste des Articles</h1>
+    <h1><%= t('list_articles') %></h1>
         
-    <br>
+    <hr>
+    
+    <% if notice.present? %><p id="notice"><%= raw notice %></p><% end %>
     
     <%= link_to new_article_path, class: "btn btn-success" do %>
       <span class="glyphicon glyphicon-plus"></span> Nouveau
@@ -53,7 +52,7 @@
         <% end %>
       </tbody>
     </table>
-    <%= will_paginate @articles, :container => false %>
-
+    
+    <%= will_paginate @articles, renderer: BootstrapPagination::Rails %>
   </div>
 </div>

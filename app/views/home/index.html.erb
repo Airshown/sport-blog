@@ -5,12 +5,35 @@
 </header>
 
 <% if notice.present? %>
-    <p id="notice"><%= notice %></p>
-<% elsif !(user_signed_in?) %>
+    <p id="notice"><%= raw notice %></p>
+<% end %>
+
+<% if (user_signed_in?) %>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title"><%= t('hello_date') %> <%= l(Time.now, :format =>"%A %d %B %Y") %></h3>
+        </div>
+        
+        <div class="panel-body">
+            <p><%= t('welcome_back') %> <b><%= current_user %></b>, <%= t('check_account') %> <%= link_to t('here'), edit_user_registration_path %>.</p>
+            
+            <% if current_user.has_role?(:admin, current_user) %>
+                <p>
+                    <b><%= t('admin_options') %> :</b>
+                    <%= link_to t('list_articles'), articles_path %> |
+                    <%= link_to t('list_categories'), categories_path %> |
+                    <%= link_to t('list_comments'), commentaires_path %>
+                </p>
+            <% else %>
+                
+            <% end %>
+        </div>
+    </div>
+<% else %>
     <div class="panel panel-primary">
         <div class="panel-heading">
             <h3 class="panel-title"><%= raw t('subscribe') %></h3>
-         </div>
+        </div>
          
         <div class="panel-body">
             <%= raw t('user_subscribe') %>

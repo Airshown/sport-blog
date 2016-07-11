@@ -1,7 +1,9 @@
 <h1>Modification de l'article : "<%= @article.titre %>"</h1>
 
+<hr>
+
 <%= render 'form' %>
 
 <br>
 
-<%= link_to '<Retourner à la liste des articles', articles_path %>
+<%= link_to t('return_articles'), articles_path %>

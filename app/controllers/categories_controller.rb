@@ -14,7 +14,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     @idCategorie = Categorie.where(slug: params[:id])
-    @articles = Article.where(categorie_id: @idCategorie)
+    @articles = Article.where(categorie_id: @idCategorie).paginate(page: params[:page], per_page: 5)
   end
 
   # GET /categories/new
@@ -30,10 +30,10 @@ class CategoriesController < ApplicationController
   # POST /categories.json
   def create
     @category = Categorie.new(category_params)
-    @article.created_by = current_user
+    # @article.created_by = current_user
     respond_to do |format|
       if @category.save
-        format.html { redirect_to categories_path, notice: 'Succès : Categorie enregistrée.' }
+        format.html { redirect_to categories_path, notice: t('category_flash_save') }
         format.json { render :show, status: :created, location: categories_path }
       else
         format.html { render :new }
@@ -48,7 +48,7 @@ class CategoriesController < ApplicationController
     respond_to do |format|
       @article.created_by = current_user
       if @category.update(category_params)
-        format.html { redirect_to categories_path, notice: 'Succès : Categorie modifiée.' }
+        format.html { redirect_to categories_path, notice: t('category_flash_save') }
         format.json { render :show, status: :ok, location: categories_path }
       else
         format.html { render :edit }
@@ -62,7 +62,7 @@ class CategoriesController < ApplicationController
   def destroy
     @category.destroy
     respond_to do |format|
-      format.html { redirect_to categories_url, notice: 'Succès : Categorie supprimée.' }
+      format.html { redirect_to categories_url, notice: t('category_flash_destroy') }
       format.json { head :no_content }
     end
   end
