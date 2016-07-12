@@ -33,8 +33,10 @@ fr:
   my_account: Mon compte
   welcome_back: "Bon retour parmis nous"
   check_account: vous pouvez-vous rendre sur votre compte
+  remember_me: Rester connecté
   here: ici
-  subscribe: Inscription
+  Subscribe: Inscription
+  subscribe: iscription
   join_us: Rejoins-nous
   connect_me: Je me connecte!
   My_account: Mon compte
@@ -114,10 +116,14 @@ fr:
   btn_update: Modifier
   btn_delete: Supprimer
   btn_new: Nouveau
+  published: Publié
+  New: Nouveau
   commentaire_flash_destroy: "<b>Succès :</b> le commentaire a été supprimé."
   commentaire_flash_save: "<b>Succès :</b> le commentaire a été enregistré."
   category_flash_save: "<b>Succès :</b> la catégorie a été enregistrée."
   category_flash_destroy: "<b>Succès :</b> la catégorie a été supprimée."
+  article_flash_save: "<b>Succès :</b> l'article a été enregistré."
+  article_flash_destroy: "<b>Succès :</b> l'article a été supprimé."
   return_articles: < Retourner à la liste des articles
   return_categories: < Retourner à la liste des catégories
   return_comments: < Retourner à la liste des commentaires

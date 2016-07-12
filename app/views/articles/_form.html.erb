@@ -1,20 +1,20 @@
 <%= simple_form_for @article, :html => {:multipart => true} do |f| %>
 
   <div class="row">
+    <div class="form-group col-lg-5">
+      <%= f.input :masquer, label: 'Publier' %>
+    </div>
+  </div>
+  
+  <div class="row">
       <div class="form-group col-lg-5">
-          <%= f.input :masquer, label: 'Publier', class: 'form-control' %>
+          <%= f.input :titre, label: 'Titre' %>
       </div>
   </div>
   
   <div class="row">
       <div class="form-group col-lg-5">
-          <%= f.input :titre, label: 'Titre', class: 'form-control' %>
-      </div>
-  </div>
-  
-  <div class="row">
-      <div class="form-group col-lg-5">
-          <%= f.association :categorie, label: 'Categorie', class: 'form-control'%>
+          <%= f.association :categorie, label: 'Categorie' %>
       </div>
   </div>
   

@@ -8,7 +8,7 @@
     <% if notice.present? %><p id="notice"><%= raw notice %></p><% end %>
     
     <%= link_to new_article_path, class: "btn btn-success" do %>
-      <span class="glyphicon glyphicon-plus"></span> Nouveau
+      <span class="glyphicon glyphicon-plus"></span> <%= t('New') %>
     <% end %>
     
     <table class="table">
